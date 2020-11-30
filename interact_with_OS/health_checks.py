@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python3
 from network import *
 import shutil
@@ -15,5 +14,8 @@ def check_cpu_usage():
 # If there's not enough disk, or not enough CPU, print an error
 if not check_disk_usage('/') or not check_cpu_usage():
     print("ERROR!")
-else:
+elif check_localhost() and check_connectivity():
     print("Everything ok")
+else:
+    print("Network checks failed")
+
